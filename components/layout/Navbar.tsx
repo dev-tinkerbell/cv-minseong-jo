@@ -5,11 +5,11 @@ import { Menu, X, FileText, Mail } from "lucide-react";
 import { personal } from "@/lib/data";
 
 const navLinks = [
-  { label: "Research Interest", href: "#research" },
+  { label: "Research", href: "#research" },
   { label: "Current Research", href: "#pipeline" },
   { label: "Publications", href: "#publications" },
   { label: "Research Experience", href: "#timeline" },
-  { label: "Skills & Methodologies", href: "#skills" },
+  { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
 
