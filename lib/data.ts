@@ -318,7 +318,7 @@ export const timeline: TimelineEvent[] = [
 // ── Skills ────────────────────────────────────────────────────────────────────
 export const skillCategories: SkillCategory[] = [
   {
-    name: "In Vivo & Immunophenotyping",
+    name: "In vivo & Immunophenotyping",
     type: "bio",
     skills: [
       "Flow cytometry",
@@ -366,7 +366,7 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    name: "In Vitro Disease Modeling",
+    name: "In vitro Disease Modeling",
     type: "pharma",
     skills: [
       "3D cell culture",
@@ -436,7 +436,7 @@ export const references: Reference[] = [
 
 // ── Personal ──────────────────────────────────────────────────────────────────
 export const personal = {
-  name: "Min Seong Jo",
+  name: "Minseong Jo",
   nameAlt: "조민성",
   title: "Ph.D. Candidate",
   institution: "Korea Institute of Toxicology (KIT)",

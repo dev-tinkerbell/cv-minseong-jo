@@ -19,7 +19,7 @@ const platforms: {
 }[] = [
   {
     id: "in-vivo",
-    title: "In Vivo Platform",
+    title: "In vivo Platform",
     subtitle: "NOG / NSG Humanized Mouse Models",
     type: "bio" as const,
     accent: "#2ecc71",
@@ -43,7 +43,7 @@ const platforms: {
   },
   {
     id: "in-vitro",
-    title: "In Vitro Platform",
+    title: "In vitro Platform",
     subtitle: "3D Models · Co-culture Systems",
     type: "pharma" as const,
     accent: "#9b59b6",

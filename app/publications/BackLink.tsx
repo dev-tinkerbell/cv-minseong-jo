@@ -12,7 +12,7 @@ export default function BackLink() {
       onMouseLeave={(e) => (e.currentTarget.style.color = "#6b7280")}
     >
       <ArrowLeft size={12} />
-      Min Seong Jo
+      Minseong Jo
     </a>
   );
 }

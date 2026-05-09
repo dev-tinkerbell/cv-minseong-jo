@@ -37,7 +37,7 @@ export default function Contact() {
               >
                 <Image
                   src="/profile.jpg"
-                  alt="Min Seong Jo"
+                  alt="Minseong Jo"
                   width={303}
                   height={389}
                   className="w-full h-auto"

@@ -25,11 +25,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cv-minseong.vercel.app"),
-  title: "Min Seong Jo | Computational Immunology Researcher",
+  title: "Minseong Jo | Computational Immunology Researcher",
   description:
     "Ph.D. Candidate at Korea Institute of Toxicology specializing in transcriptomics, humanized mouse models, and biopharmaceutical evaluation through in vitro-in vivo correlation.",
   keywords: [
-    "Min Seong Jo",
+    "Minseong Jo",
     "computational immunology",
     "humanized mouse model",
     "transcriptomics",
@@ -39,18 +39,18 @@ export const metadata: Metadata = {
     "multi-omics",
     "precision medicine",
   ],
-  authors: [{ name: "Min Seong Jo", url: "mailto:Minseong.jo@kitox.re.kr" }],
+  authors: [{ name: "Minseong Jo", url: "mailto:Minseong.jo@kitox.re.kr" }],
   openGraph: {
     type: "profile",
-    title: "Min Seong Jo | Computational Immunology Researcher",
+    title: "Minseong Jo | Computational Immunology Researcher",
     description:
       "Ph.D. Candidate specializing in transcriptomics, humanized mouse models, and biopharmaceutical evaluation.",
     locale: "en_US",
-    siteName: "Min Seong Jo Research Portfolio",
+    siteName: "Minseong Jo Research Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Min Seong Jo | Computational Immunology Researcher",
+    title: "Minseong Jo | Computational Immunology Researcher",
     description:
       "Ph.D. Candidate at Korea Institute of Toxicology · Transcriptomics · IVIVC · Precision Medicine",
   },

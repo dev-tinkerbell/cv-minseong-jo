@@ -68,7 +68,7 @@ export default function OGImage() {
               marginBottom: "20px",
             }}
           >
-            Min Seong Jo
+            Minseong Jo
           </div>
 
           {/* Title */}

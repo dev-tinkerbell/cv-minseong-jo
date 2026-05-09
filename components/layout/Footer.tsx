@@ -16,7 +16,7 @@ export default function Footer() {
           </span>
         </div>
         <p className="text-xs font-mono" style={{ color: "#2a2a3a" }}>
-          © 2026 Min Seong Jo. All rights reserved.
+          © 2026 Minseong Jo. All rights reserved.
         </p>
       </div>
     </footer>

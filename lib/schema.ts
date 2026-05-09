@@ -7,7 +7,7 @@ export function generatePersonSchema() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: personal.name,
-    givenName: "Min Seong",
+    givenName: "Minseong",
     familyName: "Jo",
     jobTitle: `${personal.title}, Molecular Biotechnology`,
     email: personal.email,

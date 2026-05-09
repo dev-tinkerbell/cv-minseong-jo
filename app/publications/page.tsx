@@ -5,11 +5,11 @@ import PublicationsList from "./PublicationsList";
 import BackLink from "./BackLink";
 
 export const metadata: Metadata = {
-  title: "Publications | Min Seong Jo",
+  title: "Publications | Minseong Jo",
   description:
-    "Peer-reviewed publications by Min Seong Jo — transcriptomics, humanized mouse models, biopharmaceutical evaluation, and in vitro-in vivo correlation.",
+    "Peer-reviewed publications by Minseong Jo — transcriptomics, humanized mouse models, biopharmaceutical evaluation, and in vitro-in vivo correlation.",
   openGraph: {
-    title: "Publications | Min Seong Jo",
+    title: "Publications | Minseong Jo",
     description:
       "7 peer-reviewed publications in ACS Omega, FASEB Journal, Chemical Engineering Journal, Heliyon, Transplantation Proceedings, and Applications in Plant Sciences.",
     type: "website",
