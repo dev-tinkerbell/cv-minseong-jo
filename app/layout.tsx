@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { publications } from "@/lib/data";
+import {
+  generatePersonSchema,
+  generateScholarlyArticleSchema,
+  generateCitationMetas,
+} from "@/lib/schema";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,39 +57,10 @@ export const metadata: Metadata = {
   },
 };
 
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Min Seong Jo",
-  givenName: "Min Seong",
-  familyName: "Jo",
-  jobTitle: "Ph.D. Candidate, Molecular Biotechnology",
-  email: "Minseong.jo@kitox.re.kr",
-  affiliation: [
-    {
-      "@type": "Organization",
-      name: "Korea Institute of Toxicology",
-      alternateName: "KIT",
-    },
-    {
-      "@type": "Organization",
-      name: "Chungnam National University",
-      alternateName: "CNU",
-    },
-  ],
-  alumniOf: [
-    { "@type": "Organization", name: "Sungkyunkwan University" },
-    { "@type": "Organization", name: "Catholic University of Korea" },
-  ],
-  knowsAbout: [
-    "Computational Immunology",
-    "Humanized Mouse Models",
-    "Transcriptomics",
-    "Multi-omics Integration",
-    "Biopharmaceutical Evaluation",
-    "In vitro-In vivo Correlation",
-  ],
-};
+const personSchema = generatePersonSchema();
+const articleSchemas = publications.map(generateScholarlyArticleSchema);
+const firstAuthorPub = publications.find((p) => p.type === "first-author")!;
+const citationMetas = generateCitationMetas(firstAuthorPub);
 
 export default function RootLayout({
   children,
@@ -100,7 +77,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
-        <meta name="citation_author" content="Jo, Min Seong" />
+        {articleSchemas.map((schema, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+        {citationMetas.map((meta, i) => (
+          <meta key={i} name={meta.name} content={meta.content} />
+        ))}
         <meta
           name="citation_author_institution"
           content="Korea Institute of Toxicology"
