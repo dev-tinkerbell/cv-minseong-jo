@@ -116,11 +116,29 @@ function CopyEmailButton() {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.href.slice(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -155,18 +173,27 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-5">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-xs font-mono tracking-wider uppercase transition-colors duration-150"
-                style={{ color: "#6b7280" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#f0f4ff")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#6b7280")}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.slice(1);
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="relative text-xs font-mono tracking-wider uppercase transition-colors duration-150 pb-0.5"
+                  style={{ color: isActive ? "#4a7fff" : "#6b7280" }}
+                  onMouseEnter={(e) => !isActive && (e.currentTarget.style.color = "#f0f4ff")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = isActive ? "#4a7fff" : "#6b7280")}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span
+                      className="absolute bottom-0 left-0 right-0 h-px"
+                      style={{ backgroundColor: "#4a7fff" }}
+                    />
+                  )}
+                </a>
+              );
+            })}
 
             {/* Divider */}
             <div className="h-4 w-px" style={{ backgroundColor: "#1e1e2e" }} />

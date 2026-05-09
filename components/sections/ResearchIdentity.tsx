@@ -35,13 +35,6 @@ export default function ResearchIdentity() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left: Bio */}
           <motion.div {...inViewProps}>
-            <p
-              className="text-base leading-relaxed mb-8"
-              style={{ color: "#9ba3b2", lineHeight: 1.9 }}
-            >
-              {personal.bio}
-            </p>
-
             <div className="space-y-3">
               <p
                 className="font-mono text-xs tracking-widest uppercase mb-4"
