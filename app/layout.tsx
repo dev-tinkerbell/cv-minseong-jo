@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import "./globals.css";
 import { publications } from "@/lib/data";
 import {
@@ -96,6 +97,18 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen" style={{ backgroundColor: "#0a0a0f" }}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-RD4L5E14CB"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-RD4L5E14CB');
+          `}
+        </Script>
         <MotionProvider>{children}</MotionProvider>
         <Analytics />
       </body>
