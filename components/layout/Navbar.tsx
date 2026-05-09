@@ -5,7 +5,7 @@ import { Menu, X, FileText, Mail } from "lucide-react";
 import { personal } from "@/lib/data";
 
 const navLinks = [
-  { label: "Research Interest", href: "#research" },
+  { label: "Interest", href: "#research" },
   { label: "Current Research", href: "#pipeline" },
   { label: "Publications", href: "#publications" },
   { label: "Research Experience", href: "#timeline" },
