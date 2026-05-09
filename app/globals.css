@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), "IBM Plex Mono", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0a0f;
+  color: #f0f4ff;
+  font-family: var(--font-geist-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: #4a7fff;
+  color: #f0f4ff;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e1e2e;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a3a;
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle, #1e1e2e 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.tag {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.tag-bio { background-color: #1a3a2a; color: #2ecc71; }
+.tag-comp { background-color: #1a2a3a; color: #4a7fff; }
+.tag-pharma { background-color: #2a1a3a; color: #9b59b6; }
+.tag-gen { background-color: #3a2a1a; color: #e67e22; }
+.tag-neutral { background-color: #1e1e2e; color: #9ba3b2; }
+
+.card {
+  background-color: #111118;
+  border: 1px solid #1e1e2e;
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+.card:hover {
+  border-color: #2a2a3a;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: #4a7fff;
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+.section-num {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: #4a7fff;
+  text-transform: uppercase;
 }
