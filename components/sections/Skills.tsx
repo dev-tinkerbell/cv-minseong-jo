@@ -7,11 +7,11 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import { skillCategories } from "@/lib/data";
 
 const typeColors = {
-  bio: { bg: "#1a3a2a", accent: "#2ecc71", border: "#1e4a2e" },
-  comp: { bg: "#1a2a3a", accent: "#4a7fff", border: "#1e3a6e" },
-  pharma: { bg: "#2a1a3a", accent: "#9b59b6", border: "#3a1a5a" },
-  gen: { bg: "#3a2a1a", accent: "#e67e22", border: "#4a3a1a" },
-  neutral: { bg: "#1e1e2e", accent: "#9ba3b2", border: "#2a2a3a" },
+  bio: { bg: "#1a3a2a", accent: "#2ecc71", border: "#1e4a2e", dim: "#0f2118" },
+  comp: { bg: "#1a2a3a", accent: "#4a7fff", border: "#1e3a6e", dim: "#0d1a2a" },
+  pharma: { bg: "#2a1a3a", accent: "#9b59b6", border: "#3a1a5a", dim: "#1a0d26" },
+  gen: { bg: "#3a2a1a", accent: "#e67e22", border: "#4a3a1a", dim: "#261a0d" },
+  neutral: { bg: "#1e1e2e", accent: "#9ba3b2", border: "#2a2a3a", dim: "#141420" },
 };
 
 export default function Skills() {
@@ -30,10 +30,11 @@ export default function Skills() {
           subtitle="Technical expertise across in vivo, in vitro, and computational research domains"
         />
 
-        {/* Desktop: all visible */}
-        <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Desktop */}
+        <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
           {skillCategories.map((cat, i) => {
             const c = typeColors[cat.type];
+            const [primary, ...rest] = cat.skills;
             return (
               <motion.div
                 key={i}
@@ -41,36 +42,46 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="p-5 rounded"
-                style={{ backgroundColor: "#111118", border: "1px solid #1e1e2e" }}
+                className="rounded overflow-hidden"
+                style={{ border: "1px solid #1e1e2e" }}
               >
-                <div className="flex items-center gap-2 mb-4">
-                  <div
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: c.accent }}
-                  />
-                  <h3
-                    className="text-sm font-semibold"
-                    style={{ color: "#f0f4ff" }}
-                  >
+                {/* Category header */}
+                <div
+                  className="px-5 py-4 flex items-center gap-2.5"
+                  style={{ backgroundColor: c.dim, borderBottom: `1px solid ${c.border}` }}
+                >
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: c.accent }} />
+                  <span className="text-xs font-semibold tracking-wide" style={{ color: c.accent }}>
                     {cat.name}
-                  </h3>
+                  </span>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((skill, j) => (
-                    <span
-                      key={j}
-                      className="font-mono text-xs px-2 py-1 rounded-sm"
-                      style={{
-                        backgroundColor: c.bg,
-                        color: c.accent,
-                        border: `1px solid ${c.border}`,
-                        fontSize: "0.65rem",
-                      }}
-                    >
-                      {skill}
-                    </span>
-                  ))}
+
+                <div className="p-5" style={{ backgroundColor: "#111118" }}>
+                  {/* Primary skill */}
+                  <div
+                    className="font-mono text-xs px-3 py-2 rounded mb-3 font-semibold"
+                    style={{ backgroundColor: c.bg, color: c.accent, border: `1px solid ${c.border}` }}
+                  >
+                    {primary}
+                  </div>
+
+                  {/* Rest */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {rest.map((skill, j) => (
+                      <span
+                        key={j}
+                        className="font-mono text-xs px-2 py-1 rounded-sm"
+                        style={{
+                          backgroundColor: "#0d0d14",
+                          color: "#6b7280",
+                          border: "1px solid #1e1e2e",
+                          fontSize: "0.65rem",
+                        }}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             );
@@ -93,20 +104,11 @@ export default function Skills() {
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                 >
                   <div className="flex items-center gap-3">
-                    <div
-                      className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: c.accent }}
-                    />
-                    <span
-                      className="text-sm font-medium"
-                      style={{ color: "#f0f4ff" }}
-                    >
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: c.accent }} />
+                    <span className="text-sm font-medium" style={{ color: "#f0f4ff" }}>
                       {cat.name}
                     </span>
-                    <span
-                      className="font-mono text-xs"
-                      style={{ color: "#6b7280" }}
-                    >
+                    <span className="font-mono text-xs" style={{ color: "#6b7280" }}>
                       {cat.skills.length}
                     </span>
                   </div>
@@ -128,19 +130,16 @@ export default function Skills() {
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <div
-                        className="px-4 pb-4 pt-1"
-                        style={{ borderTop: "1px solid #1e1e2e" }}
-                      >
+                      <div className="px-4 pb-4 pt-1" style={{ borderTop: "1px solid #1e1e2e" }}>
                         <div className="flex flex-wrap gap-2 pt-3">
                           {cat.skills.map((skill, j) => (
                             <span
                               key={j}
                               className="font-mono text-xs px-2 py-1 rounded-sm"
                               style={{
-                                backgroundColor: c.bg,
-                                color: c.accent,
-                                border: `1px solid ${c.border}`,
+                                backgroundColor: j === 0 ? c.bg : "#0d0d14",
+                                color: j === 0 ? c.accent : "#6b7280",
+                                border: `1px solid ${j === 0 ? c.border : "#1e1e2e"}`,
                                 fontSize: "0.65rem",
                               }}
                             >
