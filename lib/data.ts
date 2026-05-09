@@ -464,8 +464,8 @@ export const personal = {
     "Precision Medicine & Biomarker Discovery",
   ],
   links: {
-    googleScholar: "", // TODO: 실제 Google Scholar 프로필 URL 입력
-    orcid: "",         // TODO: 실제 ORCID URL 입력 (https://orcid.org/XXXX-XXXX-XXXX-XXXX)
-    researchGate: "",  // TODO: ResearchGate 프로필 URL
+    googleScholar: "https://scholar.google.com/citations?user=owHoxtYAAAAJ&hl=ko&oi=ao",
+    orcid: "",
+    researchGate: "",
   },
 };
