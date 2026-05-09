@@ -209,7 +209,7 @@ export default function ExperimentalPlatforms() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           number="05"
-          title="Experimental Platforms"
+          title="Experimental Skills"
           subtitle="Three integrated research platforms for comprehensive biopharmaceutical evaluation"
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

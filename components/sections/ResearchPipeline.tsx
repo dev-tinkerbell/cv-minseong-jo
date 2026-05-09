@@ -56,7 +56,7 @@ export default function ResearchPipeline() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           number="03"
-          title="Research Pipeline"
+          title="Current Research"
           subtitle="Integrated research flow from human immune cell biology to translational outcomes"
         />
 
