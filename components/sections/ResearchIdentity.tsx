@@ -4,19 +4,25 @@ import { motion } from "framer-motion";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { personal } from "@/lib/data";
 
-const inViewProps = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" as const },
-  transition: { duration: 0.6 },
-};
+const focusItems = [
+  "Humanized Mouse Model Development (NOG / NSG)",
+  "Transcriptomics & Multi-omics Integration",
+  "In vitro–In vivo Correlation (IVIVC)",
+  "Biopharmaceutical Efficacy & Safety Assessment",
+];
 
-const keywordColors: Record<number, { bg: string; text: string; border: string }> = {
-  0: { bg: "#1a2a3a", text: "#4a7fff", border: "#1e3a6e" },
-  1: { bg: "#1a3a2a", text: "#2ecc71", border: "#1a4a2a" },
-  2: { bg: "#2a1a3a", text: "#9b59b6", border: "#3a1a5a" },
-  3: { bg: "#1a2a3a", text: "#c8d8ff", border: "#1e2a4a" },
-};
+const keywordColors = [
+  { color: "#4a7fff", bg: "#0d1a2e", border: "#1e2e4e" },
+  { color: "#2ecc71", bg: "#0a1e12", border: "#1a3a22" },
+  { color: "#9b59b6", bg: "#1a0d2e", border: "#2e1a4e" },
+  { color: "#c8d8ff", bg: "#111820", border: "#1e2a4e" },
+];
+
+const stats = [
+  { value: "7", label: "Publications" },
+  { value: "5", label: "Awards" },
+  { value: "3+", label: "Years at KIT" },
+];
 
 export default function ResearchIdentity() {
   return (
@@ -33,79 +39,67 @@ export default function ResearchIdentity() {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left: Bio */}
-          <motion.div {...inViewProps}>
-            <div className="space-y-3">
-              <p
-                className="font-mono text-xs tracking-widest uppercase mb-4"
-                style={{ color: "#4a7fff" }}
-              >
-                Research Focus
-              </p>
-              {[
-                "Humanized Mouse Model Development (NOG / NSG)",
-                "Transcriptomics & Multi-omics Integration",
-                "In vitro–In vivo Correlation (IVIVC)",
-                "Biopharmaceutical Efficacy & Safety Assessment",
-              ].map((item, i) => (
-                <div
+          {/* Left: Numbered focus list */}
+          <motion.div
+            initial={{ opacity: 0, x: -16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="font-mono text-xs tracking-widest uppercase mb-6" style={{ color: "#4a7fff" }}>
+              Research Focus
+            </p>
+            <div>
+              {focusItems.map((item, i) => (
+                <motion.div
                   key={i}
-                  className="flex items-start gap-3 text-sm"
-                  style={{ color: "#9ba3b2" }}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="flex items-start gap-5 py-5"
+                  style={{ borderBottom: i < focusItems.length - 1 ? "1px solid #1e1e2e" : "none" }}
                 >
-                  <span
-                    className="mt-1.5 w-1 h-1 rounded-full shrink-0"
-                    style={{ backgroundColor: "#4a7fff" }}
-                  />
-                  {item}
-                </div>
+                  <span className="font-mono text-xs shrink-0 mt-0.5" style={{ color: "#2a2a3a" }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-sm font-medium" style={{ color: "#f0f4ff" }}>{item}</span>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right: Keywords */}
+          {/* Right: Stacked keywords + Inline divider stats */}
           <motion.div
-            {...inViewProps}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col gap-4"
+            initial={{ opacity: 0, x: 16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex flex-col gap-3"
           >
-            <p
-              className="font-mono text-xs tracking-widest uppercase mb-2"
-              style={{ color: "#4a7fff" }}
-            >
+            <p className="font-mono text-xs tracking-widest uppercase mb-3" style={{ color: "#4a7fff" }}>
               Core Keywords
             </p>
-            {personal.keywords.map((kw, i) => {
-              const c = keywordColors[i];
-              return (
-                <div
-                  key={i}
-                  className="px-5 py-4 rounded"
-                  style={{
-                    backgroundColor: c.bg,
-                    border: `1px solid ${c.border}`,
-                    color: c.text,
-                  }}
-                >
-                  <span className="text-sm font-medium">{kw}</span>
-                </div>
-              );
-            })}
+            {personal.keywords.map((kw, i) => (
+              <div
+                key={i}
+                className="px-5 py-3 rounded"
+                style={{ backgroundColor: keywordColors[i].bg, border: `1px solid ${keywordColors[i].border}` }}
+              >
+                <span className="text-sm font-medium" style={{ color: keywordColors[i].color }}>{kw}</span>
+              </div>
+            ))}
 
             {/* Stats — Inline divider */}
             <div
-              className="mt-4 flex items-center rounded overflow-hidden"
+              className="flex items-center rounded overflow-hidden mt-1"
               style={{ backgroundColor: "#111118", border: "1px solid #1e1e2e" }}
             >
-              {[
-                { value: "7", label: "Publications" },
-                { value: "5", label: "Awards" },
-                { value: "3+", label: "Years at KIT" },
-              ].map((stat, i) => (
+              {stats.map((stat, i) => (
                 <div
                   key={i}
                   className="flex-1 px-5 py-4"
-                  style={{ borderRight: i < 2 ? "1px solid #1e1e2e" : "none" }}
+                  style={{ borderRight: i < stats.length - 1 ? "1px solid #1e1e2e" : "none" }}
                 >
                   <div className="text-2xl font-bold font-mono" style={{ color: "#4a7fff" }}>
                     {stat.value}
