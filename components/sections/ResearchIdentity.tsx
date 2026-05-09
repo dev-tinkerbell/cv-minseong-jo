@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FileText, Award, Microscope } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { personal } from "@/lib/data";
 
 const focusItems = [
   "Humanized Mouse Model Development (NOG / NSG)",
@@ -11,17 +11,10 @@ const focusItems = [
   "Biopharmaceutical Efficacy & Safety Assessment",
 ];
 
-const keywordColors = [
-  { color: "#4a7fff", bg: "#0d1a2e", border: "#1e2e4e" },
-  { color: "#2ecc71", bg: "#0a1e12", border: "#1a3a22" },
-  { color: "#9b59b6", bg: "#1a0d2e", border: "#2e1a4e" },
-  { color: "#c8d8ff", bg: "#111820", border: "#1e2a4e" },
-];
-
 const stats = [
-  { value: "7", label: "Publications" },
-  { value: "5", label: "Awards" },
-  { value: "3+", label: "Years at KIT" },
+  { value: "7", label: "Publications", icon: FileText },
+  { value: "5", label: "Awards", icon: Award },
+  { value: "3+", label: "Years at KIT", icon: Microscope },
 ];
 
 export default function ResearchIdentity() {
@@ -38,7 +31,7 @@ export default function ResearchIdentity() {
           subtitle="Computational Immunology · Translational Research · Precision Medicine"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left: Numbered focus list */}
           <motion.div
             initial={{ opacity: 0, x: -16 }}
@@ -69,47 +62,42 @@ export default function ResearchIdentity() {
             </div>
           </motion.div>
 
-          {/* Right: Stacked keywords + Inline divider stats */}
+          {/* Right: Stats */}
           <motion.div
             initial={{ opacity: 0, x: 16 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col gap-3"
+            className="flex flex-col gap-4"
           >
-            <p className="font-mono text-xs tracking-widest uppercase mb-3" style={{ color: "#4a7fff" }}>
-              Core Keywords
+            <p className="font-mono text-xs tracking-widest uppercase mb-2" style={{ color: "#4a7fff" }}>
+              At a Glance
             </p>
-            {personal.keywords.map((kw, i) => (
-              <div
-                key={i}
-                className="px-5 py-3 rounded"
-                style={{ backgroundColor: keywordColors[i].bg, border: `1px solid ${keywordColors[i].border}` }}
-              >
-                <span className="text-sm font-medium" style={{ color: keywordColors[i].color }}>{kw}</span>
-              </div>
-            ))}
-
-            {/* Stats — Inline divider */}
-            <div
-              className="flex items-center rounded overflow-hidden mt-1"
-              style={{ backgroundColor: "#111118", border: "1px solid #1e1e2e" }}
-            >
-              {stats.map((stat, i) => (
-                <div
+            {stats.map((stat, i) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
                   key={i}
-                  className="flex-1 px-5 py-4"
-                  style={{ borderRight: i < stats.length - 1 ? "1px solid #1e1e2e" : "none" }}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
+                  className="flex items-center justify-between px-6 py-5 rounded"
+                  style={{ backgroundColor: "#0d0d14", border: "1px solid #1e1e2e" }}
                 >
-                  <div className="text-2xl font-bold font-mono" style={{ color: "#4a7fff" }}>
-                    {stat.value}
-                  </div>
-                  <div className="text-xs mt-0.5" style={{ color: "#6b7280" }}>
+                  <span className="flex items-center gap-3 text-sm" style={{ color: "#6b7280" }}>
+                    <Icon size={14} strokeWidth={1.5} />
                     {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
+                  </span>
+                  <span
+                    className="text-3xl font-bold font-mono"
+                    style={{ color: "#4a7fff", letterSpacing: "-0.04em" }}
+                  >
+                    {stat.value}
+                  </span>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </div>
