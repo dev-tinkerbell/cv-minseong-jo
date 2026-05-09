@@ -19,12 +19,6 @@ const fadeUp = {
   }),
 };
 
-const keywordDetails: Record<string, string> = {
-  "Multi-omics Data Integration": "RNA-seq · scRNA-seq · ddPCR",
-  "In vitro-In vivo Correlation (IVIVC)": "hPBMC · NSG/NOG · 3D Models",
-  "Biopharmaceutical Efficacy & Safety Assessment": "mAb · Cytokine · GvHD",
-  "Precision Medicine & Biomarker Discovery": "Transcriptomics · Biomarkers",
-};
 
 export default function Hero() {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -184,38 +178,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Keyword pills — desktop right */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.0, duration: 0.8 }}
-          className="hidden lg:flex flex-col gap-2 absolute right-16 top-1/2 -translate-y-1/2"
-        >
-          {personal.keywords.map((kw, i) => (
-            <motion.div
-              key={i}
-              className="group px-4 py-2.5 rounded border cursor-default overflow-hidden"
-              style={{ backgroundColor: "#111118", borderColor: "#1e1e2e", maxWidth: "260px" }}
-              whileHover={{ borderColor: "#2a3a6e", backgroundColor: "#13131e" }}
-              transition={{ duration: 0.15 }}
-            >
-              <p className="text-xs font-mono transition-colors duration-150"
-                style={{ color: "#9ba3b2" }}
-              >
-                {kw}
-              </p>
-              <motion.p
-                initial={{ height: 0, opacity: 0 }}
-                whileHover={{ height: "auto", opacity: 1 }}
-                transition={{ duration: 0.2 }}
-                className="text-xs font-mono mt-1 overflow-hidden"
-                style={{ color: "#4a7fff" }}
-              >
-                {keywordDetails[kw]}
-              </motion.p>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}

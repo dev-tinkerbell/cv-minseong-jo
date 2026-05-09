@@ -92,27 +92,25 @@ export default function ResearchIdentity() {
               );
             })}
 
-            {/* Stats */}
+            {/* Stats — Inline divider */}
             <div
-              className="mt-4 grid grid-cols-3 gap-4 p-5 rounded"
-              style={{
-                backgroundColor: "#111118",
-                border: "1px solid #1e1e2e",
-              }}
+              className="mt-4 flex items-center rounded overflow-hidden"
+              style={{ backgroundColor: "#111118", border: "1px solid #1e1e2e" }}
             >
               {[
                 { value: "7", label: "Publications" },
                 { value: "5", label: "Awards" },
                 { value: "3+", label: "Years at KIT" },
               ].map((stat, i) => (
-                <div key={i} className="text-center">
-                  <div
-                    className="text-2xl font-bold font-mono"
-                    style={{ color: "#4a7fff" }}
-                  >
+                <div
+                  key={i}
+                  className="flex-1 px-5 py-4"
+                  style={{ borderRight: i < 2 ? "1px solid #1e1e2e" : "none" }}
+                >
+                  <div className="text-2xl font-bold font-mono" style={{ color: "#4a7fff" }}>
                     {stat.value}
                   </div>
-                  <div className="text-xs mt-1" style={{ color: "#6b7280" }}>
+                  <div className="text-xs mt-0.5" style={{ color: "#6b7280" }}>
                     {stat.label}
                   </div>
                 </div>
