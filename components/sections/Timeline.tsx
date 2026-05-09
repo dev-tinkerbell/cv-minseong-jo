@@ -30,7 +30,7 @@ export default function Timeline() {
       <div className="max-w-5xl mx-auto">
         <SectionHeader
           number="06"
-          title="Research Timeline"
+          title="Research Experience"
           subtitle="Academic and research journey from 2012 to present"
         />
 

@@ -15,7 +15,7 @@ export default function Awards() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           number="08"
-          title="Awards & Recognition"
+          title="Awards"
           subtitle="Honors received from leading Korean research institutions"
         />
 

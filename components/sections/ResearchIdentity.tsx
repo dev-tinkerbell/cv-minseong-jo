@@ -27,7 +27,7 @@ export default function ResearchIdentity() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           number="02"
-          title="Research Identity"
+          title="Research Interest"
           subtitle="Computational Immunology · Translational Research · Precision Medicine"
         />
 
