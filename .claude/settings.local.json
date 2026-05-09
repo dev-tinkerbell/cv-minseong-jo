@@ -3,7 +3,19 @@
     "allow": [
       "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes --use-npm)",
       "Bash(mv /Users/gahyun/Documents/playground/cv_minseoung/PLAN.md /tmp/PLAN_backup.md)",
-      "Bash(npx create-next-app@latest /Users/gahyun/Documents/playground/cv_minseoung --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes --use-npm)"
+      "Bash(npx create-next-app@latest /Users/gahyun/Documents/playground/cv_minseoung --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes --use-npm)",
+      "Bash(mv /tmp/PLAN_backup.md /Users/gahyun/Documents/playground/cv_minseoung/PLAN.md && cat /Users/gahyun/Documents/playground/cv_minseoung/package.json)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\" http://localhost:3000)",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\('Microscope:', !!l.Microscope, 'FlaskConical:', !!l.FlaskConical, 'Cpu:', !!l.Cpu, 'Layers:', !!l.Layers, 'TestTube:', !!l.TestTube, 'Dna:', !!l.Dna\\)\")",
+      "Bash(pkill -f \"next dev\")"
+    ],
+    "additionalDirectories": [
+      "/private/tmp"
     ]
   }
 }
