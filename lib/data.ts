@@ -343,17 +343,6 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    name: "In Vitro Disease Modeling",
-    type: "pharma",
-    skills: [
-      "3D cell culture",
-      "Hepatocyte-Immune coculture",
-      "Cytotoxicity assays",
-      "Live/Dead staining",
-      "Confocal microscopy",
-    ],
-  },
-  {
     name: "Bioinformatics & Genomics",
     type: "comp",
     skills: [
@@ -374,6 +363,17 @@ export const skillCategories: SkillCategory[] = [
       "Linux",
       "GraphPad Prism",
       "STRUCTURE v2.3.4",
+    ],
+  },
+  {
+    name: "In Vitro Disease Modeling",
+    type: "pharma",
+    skills: [
+      "3D cell culture",
+      "Hepatocyte-Immune coculture",
+      "Cytotoxicity assays",
+      "Live/Dead staining",
+      "Confocal microscopy",
     ],
   },
 ];

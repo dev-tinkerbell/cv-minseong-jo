@@ -34,7 +34,6 @@ export default function Skills() {
         <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
           {skillCategories.map((cat, i) => {
             const c = typeColors[cat.type];
-            const [primary, ...rest] = cat.skills;
             return (
               <motion.div
                 key={i}
@@ -56,32 +55,21 @@ export default function Skills() {
                   </span>
                 </div>
 
-                <div className="p-5" style={{ backgroundColor: "#111118" }}>
-                  {/* Primary skill */}
-                  <div
-                    className="font-mono text-xs px-3 py-2 rounded mb-3 font-semibold"
-                    style={{ backgroundColor: c.bg, color: c.accent, border: `1px solid ${c.border}` }}
-                  >
-                    {primary}
-                  </div>
-
-                  {/* Rest */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {rest.map((skill, j) => (
-                      <span
-                        key={j}
-                        className="font-mono text-xs px-2 py-1 rounded-sm"
-                        style={{
-                          backgroundColor: "#0d0d14",
-                          color: "#6b7280",
-                          border: "1px solid #1e1e2e",
-                          fontSize: "0.65rem",
-                        }}
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+                <div className="p-5 flex flex-wrap gap-1.5" style={{ backgroundColor: "#111118" }}>
+                  {cat.skills.map((skill, j) => (
+                    <span
+                      key={j}
+                      className="font-mono text-xs px-2.5 py-1.5 rounded-sm"
+                      style={{
+                        backgroundColor: c.bg,
+                        color: c.accent,
+                        border: `1px solid ${c.border}`,
+                        fontSize: "0.68rem",
+                      }}
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </motion.div>
             );
