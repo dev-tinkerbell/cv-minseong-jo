@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes --use-npm)",
+      "Bash(mv /Users/gahyun/Documents/playground/cv_minseoung/PLAN.md /tmp/PLAN_backup.md)",
+      "Bash(npx create-next-app@latest /Users/gahyun/Documents/playground/cv_minseoung --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes --use-npm)"
+    ]
+  }
+}
