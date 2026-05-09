@@ -55,7 +55,29 @@ export default function Hero() {
       />
 
       <div className="relative w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-24 md:py-32">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-20">
+
+          {/* Photo — top on mobile, hidden on desktop (shown in right column) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="block lg:hidden"
+          >
+            <div
+              className="overflow-hidden rounded-lg"
+              style={{ width: "120px", border: "1px solid #1e1e2e" }}
+            >
+              <Image
+                src="/profile.jpg"
+                alt="Minseong Jo"
+                width={303}
+                height={389}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          </motion.div>
 
           {/* Left: Text content */}
           <div className="max-w-2xl">
@@ -182,12 +204,12 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Profile photo */}
+          {/* Right: Profile photo — desktop only */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="shrink-0 flex flex-col items-center gap-3 lg:items-end"
+            className="hidden lg:flex shrink-0 flex-col items-end gap-3"
           >
             <div
               className="overflow-hidden rounded-lg"
