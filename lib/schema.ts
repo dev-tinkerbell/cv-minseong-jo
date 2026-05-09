@@ -1,6 +1,6 @@
 import { Publication, personal } from "./data";
 
-const SITE_URL = "https://minseongjo.vercel.app";
+const SITE_URL = "https://cv-minseong.vercel.app";
 
 export function generatePersonSchema() {
   return {

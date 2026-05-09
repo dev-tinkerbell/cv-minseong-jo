@@ -21,6 +21,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cv-minseong.vercel.app"),
   title: "Min Seong Jo | Computational Immunology Researcher",
   description:
     "Ph.D. Candidate at Korea Institute of Toxicology specializing in transcriptomics, humanized mouse models, and biopharmaceutical evaluation through in vitro-in vivo correlation.",
