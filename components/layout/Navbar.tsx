@@ -6,7 +6,7 @@ import { personal } from "@/lib/data";
 
 const navLinks = [
   { label: "Research", href: "#research" },
-  { label: "Pipeline", href: "#pipeline" },
+  { label: "Current Research", href: "#pipeline" },
   { label: "Publications", href: "#publications" },
   { label: "Timeline", href: "#timeline" },
   { label: "Skills", href: "#skills" },
