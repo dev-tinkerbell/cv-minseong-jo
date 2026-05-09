@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { IBM_Plex_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { publications } from "@/lib/data";
 import {
@@ -8,6 +9,7 @@ import {
   generateScholarlyArticleSchema,
   generateCitationMetas,
 } from "@/lib/schema";
+import MotionProvider from "@/components/ui/MotionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -94,7 +96,8 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen" style={{ backgroundColor: "#0a0a0f" }}>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
+        <Analytics />
       </body>
     </html>
   );
